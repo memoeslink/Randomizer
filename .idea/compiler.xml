@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Randomizer" />
+        <module name="randomizer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Randomizer" target="15" />
+      <module name="randomizer" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
