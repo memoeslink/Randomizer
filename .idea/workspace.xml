@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="945610a9-1366-43f8-a5ac-740799f5d4df" name="Changes" comment="Changed pom.xml." />
+    <list default="true" id="945610a9-1366-43f8-a5ac-740799f5d4df" name="Changes" comment="Added files to repo.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636514511395</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Added files to repo.">
+      <created>1636515078184</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1636515078184</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,7 +147,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -148,6 +171,7 @@
     <MESSAGE value="Added externalDependencies.xml." />
     <MESSAGE value="Changed workspace.xml." />
     <MESSAGE value="Changed pom.xml." />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed pom.xml." />
+    <MESSAGE value="Added files to repo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added files to repo." />
   </component>
 </project>
