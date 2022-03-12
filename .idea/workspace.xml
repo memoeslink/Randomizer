@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="945610a9-1366-43f8-a5ac-740799f5d4df" name="Changes" comment="Added files to repo.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="945610a9-1366-43f8-a5ac-740799f5d4df" name="Changes" comment="Changed pom.xml.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/randomizer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/randomizer.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/main/common/Randomizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/memoeslink/common/Randomizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/java/main/common/WeightedChar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com/memoeslink/common/WeightedChar.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +43,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/java/main/common" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/com/memoeslink/common" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\memoe\IdeaProjects\Randomizer\src\main\memoeslink\common" />
       <recent name="C:\Users\memoe\IdeaProjects\Randomizer\src\java\main\common" />
     </key>
   </component>
@@ -139,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636515078184</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Changed pom.xml.">
+      <created>1645123870861</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1645123870861</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,8 +179,12 @@
     <MESSAGE value="Fixed value in WeightedChar.java." />
     <MESSAGE value="Added externalDependencies.xml." />
     <MESSAGE value="Changed workspace.xml." />
-    <MESSAGE value="Changed pom.xml." />
     <MESSAGE value="Added files to repo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added files to repo." />
+    <MESSAGE value="Changed pom.xml." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed pom.xml." />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

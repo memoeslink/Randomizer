@@ -6,7 +6,7 @@
 
     <groupId>io.github.memoeslink</groupId>
     <artifactId>randomizer</artifactId>
-    <version>2021.0.0-release</version>
+    <version>2022.0.0-release</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

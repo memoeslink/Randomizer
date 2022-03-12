@@ -1,4 +1,4 @@
-package java.main.common;
+package com.memoeslink.common;
 
 public class WeightedChar {
     private char value;
