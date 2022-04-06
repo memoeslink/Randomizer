@@ -64,8 +64,16 @@ public class Randomizer {
         return r.nextFloat();
     }
 
+    public float getFloat(float min, float max) {
+        return (r.nextFloat() * (max - min)) + min;
+    }
+
     public double getDouble() {
         return r.nextDouble();
+    }
+
+    public double getDouble(double min, double max) {
+        return (r.nextDouble() * (max - min)) + min;
     }
 
     public long getLong() {
