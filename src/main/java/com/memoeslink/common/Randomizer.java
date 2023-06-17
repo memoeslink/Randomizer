@@ -8,7 +8,7 @@ public class Randomizer {
     private Random r;
 
     public Randomizer() {
-        bindSeed(null);
+        this(null);
     }
 
     public Randomizer(Long seed) {
