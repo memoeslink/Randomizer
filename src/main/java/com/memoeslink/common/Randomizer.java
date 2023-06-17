@@ -3,9 +3,9 @@ package com.memoeslink.common;
 import java.util.*;
 
 public class Randomizer {
+    private static final HashMap<Integer, Double> ARRAY_WEIGHT_REGISTRY = new HashMap<>();
     private Long seed;
     private Random r;
-    private static final HashMap<Integer, Double> ARRAY_WEIGHT_REGISTRY = new HashMap<>();
 
     public Randomizer() {
         bindSeed(null);
