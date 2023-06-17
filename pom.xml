@@ -6,7 +6,7 @@
 
     <groupId>io.github.memoeslink</groupId>
     <artifactId>randomizer</artifactId>
-    <version>2022.0.1-release</version>
+    <version>2023.0.0-release</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -122,6 +122,6 @@
         <connection>scm:git:git://github.com/memoeslink/randomizer.git</connection>
         <developerConnection>scm:git:ssh://github.com/memoeslink/randomizer.git</developerConnection>
         <url>https://github.com/memoeslink/randomizer/tree/master</url>
-        <tag>2021.0.0-release</tag>
+        <tag>2023.0.0-release</tag>
     </scm>
 </project>
