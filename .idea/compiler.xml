@@ -12,7 +12,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Randomizer" target="15" />
-      <module name="randomizer" target="11" />
+      <module name="randomizer" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
