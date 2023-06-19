@@ -10,8 +10,6 @@
     <url>https://github.com/memoeslink/randomizer</url>
 
     <properties>
-        <commons-rng-sampling.version>1.5</commons-rng-sampling.version>
-        <commons-rng-simple.version>1.5</commons-rng-simple.version>
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
