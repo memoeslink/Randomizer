@@ -32,6 +32,10 @@ public class Randomizer {
         bindSeed(null);
     }
 
+    public boolean getBoolean() {
+        return r.nextBoolean();
+    }
+
     public int getInt() {
         return r.nextInt();
     }
@@ -42,60 +46,52 @@ public class Randomizer {
         return r.nextInt(n);
     }
 
-    public int getInt(int start, int n) {
-        int value;
-        boolean negative = false;
+    public int getInt(int origin, int bound) {
+        if (bound <= origin)
+            return 0;
+        return r.nextInt(origin, bound);
+    }
 
-        if (n < 1)
-            n = 1;
+    public int getIntInRange(int min, int max) {
+        if (max > min)
+            return r.nextInt(max - min + 1) + min;
 
-        if (start < 0) {
-            negative = true;
-            start = Math.abs(start);
+        if (min == max)
+            return min;
+        return 0;
+    }
+
+    public List<Integer> getInts(int size) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Integer> ints = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            ints.add(getInt());
         }
-        value = r.nextInt(n);
-
-        if (negative)
-            value = value - start;
-        else
-            value = value + start;
-        return value;
+        return ints;
     }
 
-    public boolean getBoolean() {
-        return r.nextBoolean();
+    public List<Integer> getInts(int size, int n) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Integer> ints = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            ints.add(getInt(n));
+        }
+        return ints;
     }
 
-    public float getFloat() {
-        return r.nextFloat();
-    }
+    public List<Integer> getInts(int size, int origin, int bound) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Integer> ints = new ArrayList<>();
 
-    public float getFloat(int n) {
-        if (n < 1)
-            n = 1;
-        return r.nextFloat(n);
-    }
-
-    public float getFloat(float min, float max) {
-        if (max > min)
-            return (r.nextFloat() * (max - min)) + min;
-        return r.nextFloat();
-    }
-
-    public double getDouble() {
-        return r.nextDouble();
-    }
-
-    public double getDouble(int n) {
-        if (n < 1)
-            n = 1;
-        return r.nextDouble(n);
-    }
-
-    public double getDouble(double min, double max) {
-        if (max > min)
-            return (r.nextDouble() * (max - min)) + min;
-        return r.nextDouble();
+        for (int i = 0; i < size; i++) {
+            ints.add(getInt(origin, bound));
+        }
+        return ints;
     }
 
     public long getLong() {
@@ -108,61 +104,203 @@ public class Randomizer {
         return r.nextLong(n);
     }
 
-    public int getGaussianInt(int standardDeviation, int mean, int constraint) {
-        int value;
-        int tries = 999;
+    public long getLong(long origin, long bound) {
+        if (bound <= origin)
+            return 0L;
+        return r.nextLong(origin, bound);
+    }
 
-        try {
-            do {
-                value = (int) Math.round(r.nextGaussian() * standardDeviation + mean);
-                tries--;
-            } while (value <= constraint && tries > 0);
+    public long getLongInRange(long min, long max) {
+        if (max > min)
+            return r.nextLong(max - min + 1) + min;
 
-            if (tries == 0)
-                value = constraint;
-            return value;
-        } catch (Exception e) {
-            return constraint;
+        if (min == max)
+            return min;
+        return 0L;
+    }
+
+    public List<Long> getLongs(int size) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Long> longs = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            longs.add(getLong());
         }
+        return longs;
     }
 
-    public List<Integer> getIntegers(int maxNumbers, int maxValue, boolean nonRepeating) {
-        List<Integer> numbers = new ArrayList<>();
+    public List<Long> getLongs(int size, long n) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Long> longs = new ArrayList<>();
 
-        if (maxNumbers <= 0)
-            maxNumbers = 1;
-
-        if (maxValue <= 0)
-            maxValue = 2;
-
-        if (r != null) {
-            for (int n = 0; n < maxNumbers; n++) {
-                numbers.add(r.nextInt(maxValue + 1));
-            }
-
-            if (nonRepeating) {
-                Set<Integer> set = new HashSet<>();
-                set.addAll(numbers);
-                numbers.clear();
-                numbers.addAll(set);
-            }
+        for (int i = 0; i < size; i++) {
+            longs.add(getLong(n));
         }
-        return numbers;
+        return longs;
     }
 
-    public <T> T getElement(T[] array) {
-        if (array == null || array.length == 0)
-            return null;
-        return array[r.nextInt(array.length)];
+    public List<Long> getLongs(int size, long origin, long bound) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Long> longs = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            longs.add(getLong(origin, bound));
+        }
+        return longs;
     }
 
-    public <T> T getItem(List<T> list) {
-        if (list == null || list.size() == 0)
-            return null;
-        return list.get(r.nextInt(list.size()));
+    public float getFloat() {
+        return r.nextFloat();
     }
 
-    public char chooseOnWeight(WeightedChar[] weightedChars) {
+    public float getFloat(float n) {
+        if (n < 1.0F)
+            n = 1.0F;
+        return r.nextFloat(n);
+    }
+
+    public float getFloat(float origin, float bound) {
+        if (bound <= origin)
+            return 0.0F;
+        return r.nextFloat(origin, bound);
+    }
+
+    public float getFloatInRange(float min, float max) {
+        if (max > min)
+            return r.nextFloat() * (max - min) + min;
+
+        if (min == max)
+            return min;
+        return 0.0F;
+    }
+
+    public List<Float> getFloats(int size) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Float> floats = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            floats.add(getFloat());
+        }
+        return floats;
+    }
+
+    public List<Float> getFloats(int size, float n) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Float> floats = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            floats.add(getFloat(n));
+        }
+        return floats;
+    }
+
+    public List<Float> getFloats(int size, float origin, float bound) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Float> floats = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            floats.add(getFloat(origin, bound));
+        }
+        return floats;
+    }
+
+    public double getDouble() {
+        return r.nextDouble();
+    }
+
+    public double getDouble(double n) {
+        if (n < 1.0D)
+            n = 1.0D;
+        return r.nextDouble(n);
+    }
+
+    public double getDouble(double origin, double bound) {
+        if (bound <= origin)
+            return 0.0D;
+        return r.nextDouble(origin, bound);
+    }
+
+    public double getDoubleInRange(double min, double max) {
+        if (max > min)
+            return r.nextDouble() * (max - min) + min;
+
+        if (min == max)
+            return min;
+        return 0.0D;
+    }
+
+    public List<Double> getDoubles(int size) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Double> doubles = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            doubles.add(getDouble());
+        }
+        return doubles;
+    }
+
+    public List<Double> getDoubles(int size, double n) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Double> doubles = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            doubles.add(getDouble(n));
+        }
+        return doubles;
+    }
+
+    public List<Double> getDoubles(int size, double origin, double bound) {
+        if (size < 0)
+            return new ArrayList<>();
+        List<Double> doubles = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            doubles.add(getDouble(origin, bound));
+        }
+        return doubles;
+    }
+
+    public double getGaussian() {
+        return r.nextGaussian();
+    }
+
+    public double getGaussian(double mean, double stdDeviation) {
+        if (stdDeviation < 0.0D)
+            return 0.0D;
+        return r.nextGaussian(mean, stdDeviation) * stdDeviation + mean;
+    }
+
+    public double getGaussian(double mean, double stdDeviation, double constraint) {
+        for (int tries = 100; tries > 0; tries--) {
+            double value = getGaussian(mean, stdDeviation);
+
+            if (value <= constraint)
+                return value;
+        }
+        return constraint;
+    }
+
+    public double getGaussianInt() {
+        return (int) Math.round(getGaussian());
+    }
+
+    public double getGaussianInt(double mean, double stdDeviation) {
+        return (int) Math.round(getGaussian(mean, stdDeviation));
+    }
+
+    public double getGaussianInt(double mean, double stdDeviation, double constraint) {
+        return (int) Math.round(getGaussian(mean, stdDeviation, constraint));
+    }
+
+    public char getCharBasedOnWeight(WeightedChar[] weightedChars) {
         weightedChars = weightedChars != null ? weightedChars : new WeightedChar[]{};
         double completeWeight = ARRAY_WEIGHT_REGISTRY.getOrDefault(Arrays.hashCode(weightedChars), 0.0D);
 
@@ -181,5 +319,24 @@ public class Randomizer {
             if (weight > 0.0D && weight >= probability) return c.getValue();
         }
         return new WeightedChar().getValue();
+    }
+
+    public <T> T getElement(T[] array) {
+        if (array == null || array.length == 0)
+            return null;
+        return array[r.nextInt(array.length)];
+    }
+
+    public <T> T getItem(List<T> list) {
+        if (list == null || list.size() == 0)
+            return null;
+        return list.get(r.nextInt(list.size()));
+    }
+
+    public <T extends Enum<?>> T getEnum(Class<T> clazz) {
+        if (clazz == null || clazz.getEnumConstants().length == 0)
+            return null;
+        int x = r.nextInt(clazz.getEnumConstants().length);
+        return clazz.getEnumConstants()[x];
     }
 }
