@@ -122,6 +122,7 @@
         <connection>scm:git:git://github.com/memoeslink/randomizer.git</connection>
         <developerConnection>scm:git:ssh://github.com/memoeslink/randomizer.git</developerConnection>
         <url>https://github.com/memoeslink/randomizer/tree/master</url>
+        <tag>2023.1.0-release</tag>
     </scm>
 
     <distributionManagement>
