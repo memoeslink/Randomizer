@@ -1,5 +1,6 @@
 package com.memoeslink.common;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
@@ -589,8 +590,8 @@ class RandomizerTest {
     @Test
     void getGaussianWithConstraint(TestInfo testInfo) {
         Randomizer r = new Randomizer();
-        double value = r.getGaussian(10.0D, 2.0D, 25.0D);
-        assertTrue(-Double.MAX_VALUE <= value && value <= 25.0D);
+        double value = r.getGaussian(10.0D, 2.0D, 11.5D);
+        assertTrue(-Double.MAX_VALUE <= value && value <= 11.5D);
         System.out.println(testInfo.getDisplayName() + " -> " + value);
     }
 
@@ -613,8 +614,8 @@ class RandomizerTest {
     @Test
     void getGaussianIntWithConstraint(TestInfo testInfo) {
         Randomizer r = new Randomizer();
-        int value = r.getGaussianInt(10.0D, 2.0D, 25.0D);
-        assertTrue(Integer.MIN_VALUE <= value && value <= 25);
+        int value = r.getGaussianInt(10.0D, 2.0D, 11);
+        assertTrue(Integer.MIN_VALUE <= value && value <= 11);
         System.out.println(testInfo.getDisplayName() + " -> " + value);
     }
 

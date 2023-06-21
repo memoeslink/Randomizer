@@ -319,7 +319,7 @@ public class Randomizer {
     public double getGaussian(double mean, double stdDeviation) {
         if (stdDeviation < 0.0D)
             return 0.0D;
-        return r.nextGaussian(mean, stdDeviation) * stdDeviation + mean;
+        return r.nextGaussian(mean, stdDeviation);
     }
 
     public double getGaussian(double mean, double stdDeviation, double constraint) {
