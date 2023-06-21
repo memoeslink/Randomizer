@@ -10,6 +10,7 @@
     <url>https://github.com/memoeslink/randomizer</url>
 
     <properties>
+        <assertj-core.version>3.24.2</assertj-core.version>
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
         <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
@@ -94,6 +95,12 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>

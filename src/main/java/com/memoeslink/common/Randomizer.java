@@ -62,7 +62,7 @@ public class Randomizer {
     }
 
     public List<Integer> getInts(int size) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Integer> ints = new ArrayList<>();
 
@@ -73,7 +73,7 @@ public class Randomizer {
     }
 
     public List<Integer> getInts(int size, int n) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Integer> ints = new ArrayList<>();
 
@@ -84,12 +84,23 @@ public class Randomizer {
     }
 
     public List<Integer> getInts(int size, int origin, int bound) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Integer> ints = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             ints.add(getInt(origin, bound));
+        }
+        return ints;
+    }
+
+    public List<Integer> getIntsInRange(int size, int min, int max) {
+        if (size <= 0)
+            return new ArrayList<>();
+        List<Integer> ints = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            ints.add(getIntInRange(min, max));
         }
         return ints;
     }
@@ -120,7 +131,7 @@ public class Randomizer {
     }
 
     public List<Long> getLongs(int size) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Long> longs = new ArrayList<>();
 
@@ -131,7 +142,7 @@ public class Randomizer {
     }
 
     public List<Long> getLongs(int size, long n) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Long> longs = new ArrayList<>();
 
@@ -142,7 +153,7 @@ public class Randomizer {
     }
 
     public List<Long> getLongs(int size, long origin, long bound) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Long> longs = new ArrayList<>();
 
@@ -152,13 +163,24 @@ public class Randomizer {
         return longs;
     }
 
+    public List<Long> getLongsInRange(int size, long min, long max) {
+        if (size <= 0)
+            return new ArrayList<>();
+        List<Long> longs = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            longs.add(getLongInRange(min, max));
+        }
+        return longs;
+    }
+
     public float getFloat() {
         return r.nextFloat();
     }
 
     public float getFloat(float n) {
-        if (n < 1.0F)
-            n = 1.0F;
+        if (n <= 0.0F)
+            return 0.0F;
         return r.nextFloat(n);
     }
 
@@ -178,7 +200,7 @@ public class Randomizer {
     }
 
     public List<Float> getFloats(int size) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Float> floats = new ArrayList<>();
 
@@ -189,7 +211,7 @@ public class Randomizer {
     }
 
     public List<Float> getFloats(int size, float n) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Float> floats = new ArrayList<>();
 
@@ -200,7 +222,7 @@ public class Randomizer {
     }
 
     public List<Float> getFloats(int size, float origin, float bound) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Float> floats = new ArrayList<>();
 
@@ -210,13 +232,24 @@ public class Randomizer {
         return floats;
     }
 
+    public List<Float> getFloatsInRange(int size, float min, float max) {
+        if (size <= 0)
+            return new ArrayList<>();
+        List<Float> floats = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            floats.add(getFloatInRange(min, max));
+        }
+        return floats;
+    }
+
     public double getDouble() {
         return r.nextDouble();
     }
 
     public double getDouble(double n) {
-        if (n < 1.0D)
-            n = 1.0D;
+        if (n <= 0.0D)
+            return 0.0D;
         return r.nextDouble(n);
     }
 
@@ -236,7 +269,7 @@ public class Randomizer {
     }
 
     public List<Double> getDoubles(int size) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Double> doubles = new ArrayList<>();
 
@@ -247,7 +280,7 @@ public class Randomizer {
     }
 
     public List<Double> getDoubles(int size, double n) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Double> doubles = new ArrayList<>();
 
@@ -258,12 +291,23 @@ public class Randomizer {
     }
 
     public List<Double> getDoubles(int size, double origin, double bound) {
-        if (size < 0)
+        if (size <= 0)
             return new ArrayList<>();
         List<Double> doubles = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             doubles.add(getDouble(origin, bound));
+        }
+        return doubles;
+    }
+
+    public List<Double> getDoublesInRange(int size, double min, double max) {
+        if (size <= 0)
+            return new ArrayList<>();
+        List<Double> doubles = new ArrayList<>();
+
+        for (int i = 0; i < size; i++) {
+            doubles.add(getDoubleInRange(min, max));
         }
         return doubles;
     }
@@ -288,15 +332,15 @@ public class Randomizer {
         return constraint;
     }
 
-    public double getGaussianInt() {
+    public int getGaussianInt() {
         return (int) Math.round(getGaussian());
     }
 
-    public double getGaussianInt(double mean, double stdDeviation) {
+    public int getGaussianInt(double mean, double stdDeviation) {
         return (int) Math.round(getGaussian(mean, stdDeviation));
     }
 
-    public double getGaussianInt(double mean, double stdDeviation, double constraint) {
+    public int getGaussianInt(double mean, double stdDeviation, double constraint) {
         return (int) Math.round(getGaussian(mean, stdDeviation, constraint));
     }
 
@@ -327,7 +371,7 @@ public class Randomizer {
         return array[r.nextInt(array.length)];
     }
 
-    public <T> T getItem(List<T> list) {
+    public <T> T getElement(List<T> list) {
         if (list == null || list.size() == 0)
             return null;
         return list.get(r.nextInt(list.size()));
