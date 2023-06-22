@@ -49,7 +49,7 @@ public class Randomizer {
     public int getInt(int origin, int bound) {
         if (bound <= origin)
             return 0;
-        return r.nextInt(origin, bound);
+        return r.nextInt(bound - origin) + origin; //r.nextInt(origin, bound);
     }
 
     public int getIntInRange(int min, int max) {
@@ -112,18 +112,18 @@ public class Randomizer {
     public long getLong(long n) {
         if (n < 1L)
             n = 1L;
-        return r.nextLong(n);
+        return (long) (r.nextDouble() * n); //r.nextLong(n);
     }
 
     public long getLong(long origin, long bound) {
         if (bound <= origin)
             return 0L;
-        return r.nextLong(origin, bound);
+        return (long) ((bound - origin) * r.nextDouble()) + origin; //r.nextLong(origin, bound);
     }
 
     public long getLongInRange(long min, long max) {
         if (max > min)
-            return r.nextLong(max - min + 1) + min;
+            return (long) (r.nextDouble() * (max - min + 1L)) + min; //r.nextLong(max - min + 1) + min;
 
         if (min == max)
             return min;
@@ -181,18 +181,18 @@ public class Randomizer {
     public float getFloat(float n) {
         if (n <= 0.0F)
             return 0.0F;
-        return r.nextFloat(n);
+        return r.nextFloat() * n; //r.nextFloat(n);
     }
 
     public float getFloat(float origin, float bound) {
         if (bound <= origin)
             return 0.0F;
-        return r.nextFloat(origin, bound);
+        return r.nextFloat() * (bound - origin) + origin; //r.nextFloat(origin, bound);
     }
 
     public float getFloatInRange(float min, float max) {
         if (max > min)
-            return r.nextFloat() * (max - min) + min;
+            return r.nextFloat() * (max - min + Float.MIN_VALUE) + min;
 
         if (min == max)
             return min;
@@ -250,18 +250,18 @@ public class Randomizer {
     public double getDouble(double n) {
         if (n <= 0.0D)
             return 0.0D;
-        return r.nextDouble(n);
+        return r.nextDouble() * n; //r.nextDouble(n);
     }
 
     public double getDouble(double origin, double bound) {
         if (bound <= origin)
             return 0.0D;
-        return r.nextDouble(origin, bound);
+        return r.nextDouble() * (bound - origin) + origin; //r.nextDouble(origin, bound);
     }
 
     public double getDoubleInRange(double min, double max) {
         if (max > min)
-            return r.nextDouble() * (max - min) + min;
+            return r.nextDouble() * (max - min + Double.MIN_VALUE) + min;
 
         if (min == max)
             return min;

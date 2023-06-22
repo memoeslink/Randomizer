@@ -1,6 +1,5 @@
 package com.memoeslink.common;
 
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
@@ -61,7 +60,7 @@ class RandomizerTest {
 
     @Test
     void getInt(TestInfo testInfo) {
-        Randomizer r = new Randomizer();
+        Randomizer r = new Randomizer(15212817L);
         int value = r.getInt();
         assertTrue(Integer.MIN_VALUE <= value && value <= Integer.MAX_VALUE);
         System.out.println(testInfo.getDisplayName() + " -> " + value);
