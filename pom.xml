@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.memoeslink</groupId>
     <artifactId>randomizer</artifactId>
-    <version>2023.1.4-release</version>
+    <version>2023.1.5-release</version>
     <name>randomizer</name>
     <description>A Java library to have a better management of Random.</description>
     <url>https://github.com/memoeslink/randomizer</url>
@@ -18,8 +18,8 @@
         <maven-project-info-reports-plugin.version>3.1.2</maven-project-info-reports-plugin.version>
         <maven-site-plugin.version>3.3</maven-site-plugin.version>
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
     </properties>
 
