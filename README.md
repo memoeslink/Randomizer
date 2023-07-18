@@ -7,7 +7,7 @@ A Java library to have a better management of Random.
 To use this library with Gradle, include this line of code in your build.gradle:
 
 ```
-implementation 'io.github.memoeslink:randomizer:2023.1.4-release'
+implementation 'io.github.memoeslink:randomizer:2023.1.5'
 ```
 
 To use this library with Maven, you can use this in your pom.xml:
@@ -16,7 +16,7 @@ To use this library with Maven, you can use this in your pom.xml:
    <dependency>
      <groupId>io.github.memoeslink</groupId>
      <artifactId>randomizer</artifactId>
-     <version>2023.1.4-release</version>
+     <version>2023.1.5</version>
    </dependency>
 ```
 
