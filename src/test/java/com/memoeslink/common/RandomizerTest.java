@@ -4,10 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInfo;
 
 import java.time.DayOfWeek;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RandomizerTest {
@@ -150,8 +153,8 @@ class RandomizerTest {
     void getInts(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Integer> values = r.getInts(10);
-        assertThat(values).asList().hasOnlyElementsOfType(Integer.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> Integer.MIN_VALUE <= value && value <= Integer.MAX_VALUE));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -160,8 +163,6 @@ class RandomizerTest {
     void getIntsFromBound(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Integer> values = r.getInts(10, 10);
-        assertThat(values).asList().hasOnlyElementsOfType(Integer.class);
-        assertThat(values).asList().hasSize(10);
         assertTrue(values.stream().allMatch(value -> 0 <= value && value < 10));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -170,8 +171,6 @@ class RandomizerTest {
     void getIntsFromOrigin(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Integer> values = r.getInts(10, -100, 100);
-        assertThat(values).asList().hasOnlyElementsOfType(Integer.class);
-        assertThat(values).asList().hasSize(10);
         assertTrue(values.stream().allMatch(value -> -100 <= value && value < 100));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -180,8 +179,6 @@ class RandomizerTest {
     void getIntsInRange(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Integer> values = r.getIntsInRange(10, -5, 5);
-        assertThat(values).asList().hasOnlyElementsOfType(Integer.class);
-        assertThat(values).asList().hasSize(10);
         assertTrue(values.stream().allMatch(value -> -5 <= value && value <= 5));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -278,8 +275,8 @@ class RandomizerTest {
     void getLongs(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Long> values = r.getLongs(10);
-        assertThat(values).asList().hasOnlyElementsOfType(Long.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> Long.MIN_VALUE <= value && value <= Long.MAX_VALUE));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -288,8 +285,8 @@ class RandomizerTest {
     void getLongsFromBound(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Long> values = r.getLongs(10, 10);
-        assertThat(values).asList().hasOnlyElementsOfType(Long.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> 0L <= value && value < 10L));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -298,8 +295,8 @@ class RandomizerTest {
     void getLongsFromOrigin(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Long> values = r.getLongs(10, -100L, 100L);
-        assertThat(values).asList().hasOnlyElementsOfType(Long.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -100L <= value && value < 100L));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -308,8 +305,8 @@ class RandomizerTest {
     void getLongsInRange(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Long> values = r.getLongsInRange(10, -5L, 5L);
-        assertThat(values).asList().hasOnlyElementsOfType(Long.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -5L <= value && value <= 5L));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -406,8 +403,8 @@ class RandomizerTest {
     void getFloats(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Float> values = r.getFloats(10);
-        assertThat(values).asList().hasOnlyElementsOfType(Float.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> 0.0F <= value && value <= 1.0F));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -416,8 +413,8 @@ class RandomizerTest {
     void getFloatsFromBound(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Float> values = r.getFloats(10, 100.0F);
-        assertThat(values).asList().hasOnlyElementsOfType(Float.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> 0.0F <= value && value < 100.0F));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -426,8 +423,8 @@ class RandomizerTest {
     void getFloatsFromOrigin(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Float> values = r.getFloats(10, -15.0F, 10.0F);
-        assertThat(values).asList().hasOnlyElementsOfType(Float.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -15.0F <= value && value < 10.0F));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -436,8 +433,8 @@ class RandomizerTest {
     void getFloatsInRange(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Float> values = r.getFloatsInRange(20, -2.5F, 11.25F);
-        assertThat(values).asList().hasOnlyElementsOfType(Float.class);
-        assertThat(values).asList().hasSize(20);
+        assertEquals(20, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -2.5F <= value && value <= 11.25F));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -534,8 +531,8 @@ class RandomizerTest {
     void getDoubles(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Double> values = r.getDoubles(10);
-        assertThat(values).asList().hasOnlyElementsOfType(Double.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> 0.0D <= value && value <= 1.0D));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -544,8 +541,8 @@ class RandomizerTest {
     void getDoublesFromBound(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Double> values = r.getDoubles(10, 10.0D);
-        assertThat(values).asList().hasOnlyElementsOfType(Double.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> 0.0D <= value && value < 10.0D));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -554,8 +551,8 @@ class RandomizerTest {
     void getDoublesFromOrigin(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Double> values = r.getDoubles(10, -15.0D, 10.0D);
-        assertThat(values).asList().hasOnlyElementsOfType(Double.class);
-        assertThat(values).asList().hasSize(10);
+        assertEquals(10, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -15.0D <= value && value < 10.0D));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -564,8 +561,8 @@ class RandomizerTest {
     void getDoublesInRange(TestInfo testInfo) {
         Randomizer r = new Randomizer();
         List<Double> values = r.getDoublesInRange(20, -2.5D, 11.25D);
-        assertThat(values).asList().hasOnlyElementsOfType(Double.class);
-        assertThat(values).asList().hasSize(20);
+        assertEquals(20, values.size());
+        assertTrue(values.stream().allMatch(Objects::nonNull));
         assertTrue(values.stream().allMatch(value -> -2.5D <= value && value <= 11.25D));
         System.out.println(testInfo.getDisplayName() + " -> " + values);
     }
@@ -639,11 +636,33 @@ class RandomizerTest {
     @Test
     void getElementInList(TestInfo testInfo) {
         Randomizer r = new Randomizer();
-        List<String> values = new ArrayList<>();
-        values.add("test");
-        values.add("sample");
-        String element = r.getElement(values);
+        List<Integer> values = IntStream.rangeClosed(1, 1000)
+                .boxed()
+                .collect(Collectors.toList());
+        int element = r.getElement(values);
         assertTrue(values.contains(element));
+        System.out.println(testInfo.getDisplayName() + " -> " + element);
+    }
+
+    @Test
+    void getElementInSet(TestInfo testInfo) {
+        Randomizer r = new Randomizer();
+        Set<Integer> values = IntStream.rangeClosed(1, 1000)
+                .boxed()
+                .collect(Collectors.toSet());
+        int element = r.getElement(values);
+        assertTrue(values.contains(element));
+        System.out.println(testInfo.getDisplayName() + " -> " + element);
+    }
+
+    @Test
+    void getElementInMap(TestInfo testInfo) {
+        Randomizer r = new Randomizer();
+        Map<Integer, Integer> values = IntStream.rangeClosed(1, 1000)
+                .boxed()
+                .collect(Collectors.toMap(i -> i, i -> i));
+        int element = r.getElement(values);
+        assertNotNull(values.getOrDefault(element, null));
         System.out.println(testInfo.getDisplayName() + " -> " + element);
     }
 

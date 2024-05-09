@@ -20,7 +20,7 @@ jobs:
       - name: Set up Java for publishing to Maven Central Repository
         uses: actions/setup-java@v3
         with:
-          java-version: '19'
+          java-version: '20'
           distribution: 'temurin'
           cache: 'maven'
           server-id: ossrh
@@ -37,7 +37,7 @@ jobs:
       - name: Set up Java for publishing to GitHub Packages
         uses: actions/setup-java@v3
         with:
-          java-version: '19'
+          java-version: '20'
           distribution: 'temurin'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
